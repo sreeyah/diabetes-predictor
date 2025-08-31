@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .result-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 400px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p.message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        a {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Prediction Result</h2>
+        {% if status == 'Positive' %}
+            <img src="{{ url_for('static', filename='neg_diabetes.jpeg') }}" alt="Positive Diabetes" />
+            <p class="message">Great news! Keep up your healthy habits to stay diabetes-free.</p>
+        {% else %}
+            <img src="{{ url_for('static', filename='positive.jpg') }}" alt="No Diabetes" />
+            <p class="message">Stay strong! With proper care and lifestyle changes, you can manage diabetes effectively.</p>
+        {% endif %}
+        <a href="/">Try Again</a>
+    </div>
+</body>
+</html>
